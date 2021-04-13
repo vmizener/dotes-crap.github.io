@@ -1,13 +1,44 @@
 ---
+layout: default
+
 title: Varret, Bandit King
+attribute: Agility
+attack_type: Ranged
+
 ---
 
-Ranged Agility Hero
+# {{ page.title }}
+{{ page.attack_type }} {{ page.attribute }} Hero
 
-Super good base damage, okay range, bad BAT, bad MS
+---
+## Lore
+asdf
 
--------------------------
-(Q) Deadeye
+## Appearance
+asdf
+
+---
+## Stats
+
+| **Primary Attribute**         | {{ page.attribute }} |
+| **Movement Speed**            | 285 |
+| **Base Damage** (at Level 1)  | 55 - 61 |
+| **Attack Type**               | {{ page.attack_type }} |
+| **Attack Range**              | 625 |
+| **Projectile Speed**          | 1200 |
+
+| :- | :- | :- | :- |
+| **Strength**      | 18 + 2.2  | **Health Regen**       | 0.0 |
+| **Agility**       | 24 + 2.9  | **BAT**                | 1.9 |
+| **Intelligence**  | 20 + 1.8  | **Armor** (at Level 1) | 2.0 |
+
+---
+## Abilities
+
+### (Q) Deadeye
+
+<img src="assets/icons/dead-eye.png" style="float: left; margin: 10px; width: 100px;" />
+
 Target Point Active
 
 Fire a round with deadly precision in the target direction, performing an instant attack with bonus damage on the first enemy unit it hits.
@@ -21,16 +52,20 @@ The effect is instant (no visible projectile).
 Has 7 charges.  Charges do not recover over time.  You must use your Reload (D) ability to recover charges.
 Has a brief cast point and cooldown.
 
----
-SUBABILITY
-(D) Reload
+### (D) Reload (SUB-ABILITY)
+
+<img src="assets/icons/reload-gun-barrel.png" style="float: left; margin: 10px; width: 100px;" />
+
 No Target Active
+
 You can activate this ability and channel briefly to recover all bullet charges (7 max).
 Any attack that consumes the first or last bullet charge will deal a guaranteed critical hit.
 
 ---
-SUBABILITY
-(F) Fan the Hammer
+### (F) Fan the Hammer (SUB-ABILITY)
+
+<img src="assets/icons/gunshot.png" style="float: left; margin: 10px; width: 100px;" />
+
 Target Point Active
 
 Quickly consume all charges of Deadeye, firing in the target direction.
@@ -38,7 +73,10 @@ Each firing is randomly displaced slightly from the cast point (so they don't fi
 There is a small delay between shots, but is still much faster than manually casting.
 
 -------------------------
-(W) Showdown
+### (W) Showdown
+
+<img src="assets/icons/crossed-pistols.png" style="float: left; margin: 10px; width: 100px;" />
+
 Target Unit Active
 
 The Gunslinger challenges the target unit to a shootout, creating a circular arena centered around them.
@@ -49,7 +87,10 @@ If both are outside the arena, the effect ends.
 The AOE is fairly large (closer to Mars arena than Puck coil).
 
 -------------------------
-(E) Ace in the Hole
+### (E) Ace in the Hole
+
+<img src="assets/icons/dynamite.png" style="float: left; margin: 10px; width: 100px;" />
+
 Target Point Active
 
 Toss a bundle of dynamite at the target point, which explodes after a short duration or when destroyed.
@@ -63,7 +104,9 @@ Deadeye can ricochet off the firebomb.
 The firebomb will never be attacked by creeps or towers (like ET sleep victims).
 
 -------------------------
-(R) Witching Hour
+### (R) Witching Hour
+
+<img src="assets/icons/evil-moon.png" style="float: left; margin: 10px; width: 100px;" />
 No Target Active
 
 The Gunslinger mounts up and summons the gang for a mounted night raid.
@@ -81,13 +124,13 @@ Night Riders will also mimic Reload (though they technically don't need charges 
 Summons 1/2/3 Night Riders.
 
 -------------------------
-Aghs
+## Scepter Upgrade
 Improved Witching Hour
 
 Night Riders now also mimic Ace in the Hole (E), throwing firebombs near the same point the Gunslinger does with a random short delay.
 
 -------------------------
-Shard
+## Shard Upgrade
 Improved Reload
 
 Can now move while reloading and cannot be interrupted (no longer channelling).
