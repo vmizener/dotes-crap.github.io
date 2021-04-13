@@ -5,5 +5,5 @@
 ---
 # Hero Concepts
 {% for item in site.hero_concepts %}
-- [{{ item.title }}]({{ item.url }})
+- [{{ item.title }}]({{ site.url }}{{ item.url }})
 {% endfor %}
