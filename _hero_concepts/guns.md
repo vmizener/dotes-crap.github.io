@@ -1,7 +1,7 @@
 ---
 layout: default
 
-title: Varret, Bandit King
+title: Varret, Outlaw
 attribute: Agility
 attack_type: Ranged
 
