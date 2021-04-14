@@ -35,11 +35,13 @@ asdf
 ---
 ## Abilities
 
-### (Q) Deadeye
-
-<img src="assets/icons/dead-eye.png" style="float: left; margin: 10px; width: 100px;" />
-
-Target Point Active
+{% include headers/hero_ability.html
+    title="(Q) Deadeye"
+    icon="assets/icons/dead-eye.png"
+    ability_type="Target Point"
+    affects="Enemy Units"
+    damage_type="Magical"
+%}
 
 Fire a round with deadly precision in the target direction, performing an instant attack with bonus damage on the first enemy unit it hits.
 If the round encounters a tree, cliff, building, or firebomb (your E), it will ricochet, increasing the bonus damage each time it does so.
@@ -52,32 +54,34 @@ The effect is instant (no visible projectile).
 Has 7 charges.  Charges do not recover over time.  You must use your Reload (D) ability to recover charges.
 Has a brief cast point and cooldown.
 
-### (D) Reload (SUB-ABILITY)
+{% include headers/hero_ability.html
+    title="(D) Reload (SUB-ABILITY)"
+    icon="assets/icons/reload-gun-barrel.png"
+    ability_type="No Target"
+    affects="Self"
+%}
 
-<img src="assets/icons/reload-gun-barrel.png" style="float: left; margin: 10px; width: 100px;" />
-
-No Target Active
-
-You can activate this ability and channel briefly to recover all bullet charges (7 max).
+You can activate this ability and channel briefly to recover all bullet charges (6 max).
 Any attack that consumes the first or last bullet charge will deal a guaranteed critical hit.
 
----
-### (F) Fan the Hammer (SUB-ABILITY)
-
-<img src="assets/icons/gunshot.png" style="float: left; margin: 10px; width: 100px;" />
-
-Target Point Active
+{% include headers/hero_ability.html
+    title="(F) Fan the Hammer (SUB-ABILITY)"
+    icon="assets/icons/gunshot.png"
+    ability_type="Target Point"
+    affects="Enemies"
+%}
 
 Quickly consume all charges of Deadeye, firing in the target direction.
 Each firing is randomly displaced slightly from the cast point (so they don't fire in the exact same place).
 There is a small delay between shots, but is still much faster than manually casting.
 
--------------------------
-### (W) Showdown
-
-<img src="assets/icons/crossed-pistols.png" style="float: left; margin: 10px; width: 100px;" />
-
-Target Unit Active
+---
+{% include headers/hero_ability.html
+    title="(W) Showdown"
+    icon="assets/icons/crossed-pistols.png"
+    ability_type="Target Hero"
+    affects="Enemies"
+%}
 
 The Gunslinger challenges the target unit to a shootout, creating a circular arena centered around them.
 They both deal bonus damage as long as they remain inside, but are silenced and slowed as long as they remain outside.
@@ -86,12 +90,13 @@ If both are outside the arena, the effect ends.
 
 The AOE is fairly large (closer to Mars arena than Puck coil).
 
--------------------------
-### (E) Ace in the Hole
-
-<img src="assets/icons/dynamite.png" style="float: left; margin: 10px; width: 100px;" />
-
-Target Point Active
+---
+{% include headers/hero_ability.html
+    title="(E) Ace in the Hole"
+    icon="assets/icons/dynamite.png"
+    ability_type="Target Point"
+    affects="Enemies/Self"
+%}
 
 Toss a bundle of dynamite at the target point, which explodes after a short duration or when destroyed.
 Enemies caught in the blast are knocked back, and take magic damage and a slowing DoT effect (effect decreases with distance from blast center).
@@ -103,11 +108,12 @@ Can be attacked by allies but ally attacks always take 3 hits to kill, unless it
 Deadeye can ricochet off the firebomb.
 The firebomb will never be attacked by creeps or towers (like ET sleep victims).
 
--------------------------
-### (R) Witching Hour
-
-<img src="assets/icons/evil-moon.png" style="float: left; margin: 10px; width: 100px;" />
-No Target Active
+---
+{% include headers/hero_ability.html
+    title="(R) Witching Hour"
+    icon="assets/icons/evil-moon.png"
+    ability_type="No Target"
+%}
 
 The Gunslinger mounts up and summons the gang for a mounted night raid.
 
@@ -123,13 +129,13 @@ Night Riders will also mimic Reload (though they technically don't need charges 
 
 Summons 1/2/3 Night Riders.
 
--------------------------
+---
 ## Scepter Upgrade
 Improved Witching Hour
 
 Night Riders now also mimic Ace in the Hole (E), throwing firebombs near the same point the Gunslinger does with a random short delay.
 
--------------------------
+---
 ## Shard Upgrade
 Improved Reload
 

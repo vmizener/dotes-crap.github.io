@@ -1,0 +1,29 @@
+<h3 id="{{ include.title | slugify }}">{{ include.title }}</h3>
+<div style="overflow: auto;">
+  <div style="float: left; margin-right: 1em; width:100px;">
+    <img src="{{ include.icon }}" alt="image"/>
+  </div>
+
+  <div style="float: left; width: 75%">
+  <table style="float: top;">
+    <tbody>
+      <tr>
+        <td><strong>Ability</strong></td>
+        <td>{{ include.ability_type }}</td>
+      </tr>
+      {% if include.affects %}
+      <tr>
+        <td><strong>Affects</strong></td>
+        <td>{{ include.affects }}</td>
+      </tr>
+      {% endif %}
+      {% if include.damage_type %}
+      <tr>
+        <td><strong>Damage</strong></td>
+        <td>{{ include.damage_type }}</td>
+      </tr>
+      {% endif %}
+    </tbody>
+  </table>
+  </div>
+</div>
