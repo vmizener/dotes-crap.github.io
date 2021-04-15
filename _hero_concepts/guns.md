@@ -38,31 +38,30 @@ asdf
 {% include headers/hero_ability.html
     title=          "(Q) Deadeye"
     icon=           "assets/icons/dead-eye.png"
-    ability_type=   "Target Point"
+    ability_type=   "Vector Target"
     affects=        "Enemy Units"
     damage_type=    "Instant Attack"
 %}
 
-Fire a round with deadly precision in the target direction, performing an instant attack with bonus damage on the first enemy unit it hits.
-If the round encounters a tree, cliff, building, or firebomb (your E), it will ricochet, increasing the bonus damage each time it does so.
-If the round ricochets at least once, it will also stun the victim.
+Fire a round from your trusty revolver at the target point, which then bounces and travels in the vector-targeted direction.
+The round performs an instant attack with bonus damage on the first enemy unit it hits, additionally stunning if it managed to bounce first.
 
-- The round travels up to 1800 distance or until it hits a unit.
-- Destroys trees it bounces on.
+- The round travels up to a total of 1800 distance or until it hits a unit.
 - The effect is instant (no visible projectile).
-
+- If the round hits a tree, the tree is destroyed and no damage is dealt.
 - Has 6 charges.  Charges do not recover over time.  You must use your (D) Reload ability to recover charges.
-- Has a brief cast point and cooldown.
+- Has a minimum cast range of 400.
 
-|**Bonus Damage per Bounce**|20/25/30/35
-|**Max Bonus Damage**       |80/100/120/140
-|**Attack Damage**          |40/50/60/70%
+|**Minimum Cast Range**     |400
+|**Maximum Cast Range**     |1800
+|**Max Travel Distance**    |1800
+|**Bonus Damage**           |20/40/60/80
+|**Attack Damage**          |70%
 |**Stun Duration**          |0.4 seconds
 |**Cast Point**             |0.4 seconds
-|**Max Travel Distance**    |1800
 
-|**Mana Cost**  |20             |**Max Charges**            |6
-|**Cooldown**   |0.2 seconds    |**Charge Recovery Rate**   |N/A
+|**Mana Cost**  |15             |**Max Charges**            |6
+|**Cooldown**   |1.2 seconds    |**Charge Recovery Rate**   |N/A
 
 {% include headers/hero_ability.html
     title=          "(D) Reload (SUB-ABILITY)"
@@ -71,8 +70,8 @@ If the round ricochets at least once, it will also stun the victim.
     affects=        "Self"
 %}
 
-You can activate this ability and channel briefly to recover all bullet charges (6 max).
-Any attack that consumes the first or last bullet charge will deal a guaranteed critical hit.
+You can activate this ability and channel briefly to recover all Deadeye charges (6 max).
+An attack that consumes the first or last bullet charge will deal a guaranteed critical hit.
 
 |**First/Last Round Critical**  |180%
 |**Channel Time**               |3.0 seconds
@@ -88,20 +87,22 @@ Any attack that consumes the first or last bullet charge will deal a guaranteed 
     affects=        "Enemies"
 %}
 
-The Outlaw points out the target unit for a mugging, causing allied heroes to deal bonus damage and gain gold when they attack them.
-If the victim is attacked a set number of times within the debuff duration, they become stunned and all nearby allies gain bonus gold.  The debuff is then dispelled.
+Point out the target unit for a mugging, causing allied heroes to deal bonus damage and gain gold when they attack them.
+If the victim is attacked a set number of times within the debuff duration, they become stunned, slowed, and all nearby allies gain bonus gold.  The debuff is then dispelled.
 
 - The Outlaw gains increased gold from the effect.
 - The debuff duration is refreshed upon dealing damage.
 - Only right-click attacks trigger the effect.
-- This effect only grants gold, it does not actually steal gold from the victim.
+- The knockout bonus gold only grants gold; only the triggering attacks actually steal gold from the victim.
 
 |**Cast Range**                 |550
 |**Bonus Damage**               |10/15/20/25
 |**Ally Gold Steal per Attack** |2
 |**Self Gold Steal per Attack** |6
 |**Knockout Stack Threshold**   |8
-|**Knockout Stun Threshold**    |0.3/0.8/1.3/1.8 seconds
+|**Knockout Stun Duration**     |0.3/0.8/1.3/1.8 seconds
+|**Knockout Slow Duration**     |0.9/1.6/2.3/3.0 seconds
+|**Knockout Movement Slow**     |35%
 |**Ally AOE Gold on Knockout**  |16
 |**Self AOE Gold on Knockout**  |40
 |**Debuff Duration**            |2 seconds
@@ -115,17 +116,35 @@ If the victim is attacked a set number of times within the debuff duration, they
     icon=           "assets/icons/dynamite.png"
     ability_type=   "Target Point"
     affects=        "Enemies"
+    damage_type=    "Magical"
 %}
 
 Toss a bundle of dynamite at the target point, which explodes after a short duration or when destroyed.
-Enemies caught in the blast are knocked back, and take magic damage and a slowing DoT effect (effect decreases with distance from blast center).
-The Outlaw is also knocked back if caught in the blast (doesn't affect allies otherwise).
+Enemies caught in the blast are knocked back, and take magic damage and a slowing DoT effect.
 
-Has a flat amount of HP, no magic resistance.
-Can be attacked by allies but ally attacks always take 3 hits to kill, unless it is hit by Deadeye (Q), in which case it always explodes instantly.
-
-- Deadeye can ricochet off the firebomb.
+- The firebomb is considered a unit (not a ward).
+- The firebomb can be attacked by allies and is affected by spells.
+- Deadeye (Q) can directly target the firebomb to deal damage to it in addition to ricocheting off it.
 - The firebomb will never be attacked by creeps or towers (like ET sleep victims).
+- The firebomb is invulnerable to damage for the first second upon being created.
+- Destroys trees in the blast area.
+
+|**Cast Range**                 |700
+|**Activation Delay**           |1 second
+|**Explosion Delay**            |5 seconds
+|**Firebomb Health**            |175/200/225/250
+|**Firebomb Armor**             |0
+|**Firebomb Magic Resistance**  |0
+|**Blast Damage**               |75/180/285/390
+|**Full Blast Damage Radius**   |175
+|**Half Blast Damage Radius**   |350
+|**Burn Damage**                |20
+|**Burn Movement Slow**         |15/20/25/30%
+|**Burn Duration**              |3 seconds
+|**Knockback Range**            |350
+
+|**Mana Cost**  |95/130/165/200
+|**Cooldown**   |45/41/37/33 seconds
 
 ---
 {% include headers/hero_ability.html
@@ -138,6 +157,7 @@ The Outlaw mounts up and summons the gang for a mounted night raid.
 
 On activation, it becomes night, the Outlaw gains haste, and a number of Night Riders are summoned: uncontrollable, fast-moving ranged units that follow and mimic the Outlaw.
 When the Outlaw attacks a unit or casts Deadeye, his Night Riders will also attack or cast at the same unit or point.
+In addition, the duration of Witching Hour is paused while near enemy heroes, up to a maximum duration.
 
 - Witching Hour ends immediately if the Outlaw is killed (this is considered a transformation effect).
 - Night Riders are targetable units and can be killed by enemies.
@@ -146,32 +166,39 @@ When the Outlaw attacks a unit or casts Deadeye, his Night Riders will also atta
 - Night Riders have a random, short delay before they mimic the Outlaw, and don't mimic it at exactly the same point.
 - Night Riders do not require charges to use Deadeye.
 - The Night Riders will vanish immediately when Witching Hour ends (for any reason).
+- Witching Hour does not end prematurely when losing all of your Night Riders.
 
-|**Night Riders Summoned**  |1/2/3
+|**Transformation Delay**   |1.2 seconds
+|**Night Riders Summoned**  |3
+|**Night Rider Health**     |1200/1800/2400
+|**Night Rider Base Damage**|45/80/115
 |**Haste Speed**            |550
-|**Duration**               |18 seconds
+|**Nearby Enemy Radius**    |450
+|**Min Duration**           |6 seconds
+|**Max Duration**           |18 seconds
 
 |**Mana Cost**  |150/200/250
-|**Cooldown**   |100/90/80 seconds
+|**Cooldown**   |120/100/80 seconds
 
 ---
 ## Scepter Upgrade
 Improved Witching Hour
 
-- Night Riders now also mimic Ace in the Hole (E), throwing firebombs near the same point the Outlaw does with a random short delay.
-- Increases duration by 4 seconds.
+- Increases min/max duration by 4 seconds.
+- Increases Night Rider health by 600.
+- Causes Night Riders to also mimic Ace in the Hole (E), throwing firebombs near the same point the Outlaw does with a random short delay.
 
 ---
 ## Shard Upgrade
 Improved Reload
 
-- Can now move at 50% speed while reloading (like CM shard).
-- Decreases Reload cooldown by 10.
+- Can now move at 75% speed while reloading.
+- Removes Reload cooldown.
 
 ---
 ## Talents
 
-|10|    +1.5 Mana Regen                 | +4 Stickup Gold Steal
-|15|    +100 Attack Range               | Ace in the Hole applies Disarm
-|20|    +80% Reload Guaranteed Crit     | 400 AoE Stickup
-|25|    +1 Witching Hour Night Rider    | 2 Charges Ace in the Hole
+|10| +1.5 Mana Regen                | +4 Stickup Gold Steal
+|15| +125 Attack Range              | Attack Stickup Target While Moving
+|20| +80% Reload Guaranteed Crit    | 2 Charges Ace in the Hole
+|25| Night Rider Magic Immunity     | 400 AoE Stickup
